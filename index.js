@@ -20,7 +20,7 @@ app.post("/usuarios", (req, res)=>{
     res.send("Usuario cadastrado com sucesso!")
 })
 
-app.get("/usuario", (req, res)=>{
+app.get("/usuarios", (req, res)=>{
     res.send(usuarios)
 })
 app.listen(port, () =>{
