@@ -5,3 +5,11 @@
         "email":"",
         "celular":""
 }
+
+{
+        "nome" :"",
+        "preco":"",
+        "id":"",
+        "dt_validade":"",
+        "qnt_estoque":""
+}
