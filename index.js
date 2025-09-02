@@ -8,6 +8,31 @@ app.use(express.json())
 // npm i mysql2
 const db = require("./db")
 
+
+
+app.post("/cadastrar", async (req, res)=>{
+    const cliente = req.body
+    try {
+        const resultado = await db.pool.query(
+            `INSERT INTO cliente (
+            id_cliente, nome, cpf, email, telefone,
+             rua, n_casa, bairro, cidade,
+             uf, cep, senha) VALEUS (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)` , 
+            [cliente.id_cliente, cliente.nome, cliente.cpf,
+             cliente.email, cliente.telefone,
+             cliente.rua, cliente.n_rua,
+             cliente.bairro, cliente.cidade,
+             cliente.uf, cliente.cep, cliente.senha])
+             res.status(200).json({ id : resultado[0].insertId})
+             
+    } catch (erro) {
+        res.status(500).json({erro : "Erro interno na API"})
+        console.log(erro)
+    }
+})
+
+
+
 app.get("/clientes", async (req,res) => {
     try {
         const resultado = await db.pool.query("SELECT * FROM cliente")

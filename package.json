@@ -1,15 +1,15 @@
 {
-  "name": "3tri-api",
+  "name": "api-backend-epaminondas-main",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "expess": "^0.0.1-security",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "mysql2": "^3.14.4"
   }
 }
