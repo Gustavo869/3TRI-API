@@ -9,7 +9,6 @@ app.use(express.json())
 const db = require("./db")
 
 
-
 app.post("/cadastrar", async (req, res)=>{
     const cliente = req.body
     try {
