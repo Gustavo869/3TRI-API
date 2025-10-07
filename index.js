@@ -16,7 +16,7 @@ app.post("/cadastrar", async (req, res)=>{
             `INSERT INTO cliente (
             id_cliente, nome, cpf, email, telefone,
              rua, n_casa, bairro, cidade,
-             uf, cep, senha) VALEUS (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)` , 
+             uf, cep, senha) VALEUS (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)` , 
             [cliente.id_cliente, cliente.nome, cliente.cpf,
              cliente.email, cliente.telefone,
              cliente.rua, cliente.n_rua,
@@ -43,4 +43,5 @@ app.get("/clientes", async (req,res) => {
 
 app.listen(port, ()=>{
     console.log("API executando na porta " + port)
+
 })
