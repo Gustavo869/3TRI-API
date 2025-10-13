@@ -8,18 +8,22 @@ app.use(express.json())
 // npm i mysql2
 const db = require("./db")
 
+// npm i cors
+const cors = require("cors")
+app.use(cors())
+
 
 app.post("/cadastrar", async (req, res)=>{
     const cliente = req.body
     try {
         const resultado = await db.pool.query(
             `INSERT INTO cliente (
-            id_cliente, nome, cpf, email, telefone,
+            nome, cpf, email, telefone,
              rua, n_casa, bairro, cidade,
-             uf, cep, senha) VALEUS (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,)` , 
-            [cliente.id_cliente, cliente.nome, cliente.cpf,
+             uf, cep, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)` , 
+            [cliente.nome, cliente.cpf,
              cliente.email, cliente.telefone,
-             cliente.rua, cliente.n_rua,
+             cliente.rua, cliente.n_casa,
              cliente.bairro, cliente.cidade,
              cliente.uf, cliente.cep, cliente.senha])
              res.status(200).json({ id : resultado[0].insertId})
